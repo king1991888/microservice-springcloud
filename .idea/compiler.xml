@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="microservice-comsumer" />
+        <module name="microservice-discovery-eureka-cloud-instance1" />
+        <module name="microservice-discovery-eureka-cloud-instance2" />
+        <module name="microservice-discovery-eureka-cloud-instance3" />
+        <module name="microservice-discovery-eureka-server" />
+        <module name="microservice-provider-one" />
+        <module name="microservice-provider-one (1)" />
+        <module name="microservice-provider-one-instanceA" />
+        <module name="microservice-provider-one-instanceB" />
+        <module name="microservice-provider-two-instanceA" />
+        <module name="microservice-provider-two-instanceB" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="microservice-common" target="1.8" />
+      <module name="microservice-comsumer" target="1.8" />
+      <module name="microservice-discovery-eureka-cloud" target="1.8" />
+      <module name="microservice-discovery-eureka-cloud-instance1" target="1.8" />
+      <module name="microservice-discovery-eureka-cloud-instance2" target="1.8" />
+      <module name="microservice-discovery-eureka-cloud-instance3" target="1.8" />
+      <module name="microservice-discovery-eureka-server" target="1.8" />
+      <module name="microservice-provider-one" target="1.8" />
+      <module name="microservice-provider-one (1)" target="1.8" />
+      <module name="microservice-provider-one-instanceA" target="1.8" />
+      <module name="microservice-provider-one-instanceB" target="1.8" />
+      <module name="microservice-provider-two-instanceA" target="1.8" />
+      <module name="microservice-provider-two-instanceB" target="1.8" />
+      <module name="microservice-springcloud" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

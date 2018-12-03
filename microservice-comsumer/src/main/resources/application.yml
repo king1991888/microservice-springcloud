@@ -1,0 +1,57 @@
+server:
+  port: 7500
+
+spring:
+  application:
+    name: microservice-comsumer
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true     #允许健康检查
+    serviceUrl:
+      defaultZone: http://root:root@localhost:8765/eureka   #注册到eureka服务端的地址
+  instance:
+    prefer-ip-address: true      #允许使用ip访问，默认使用主机名访问
+    #自定义注册到eureka的服务实例名字：应用名：ip：实例端口号
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+    lease-renewal-interval-in-seconds: 5 #心跳时间间隔，单位：秒，默认30秒
+    lease-expiration-duration-in-seconds: 20  #心跳到期时间，单位秒，默认90秒
+    metadata-map:
+        zone: ABC      # eureka可以理解的元数据
+        king: BBC  # 不会影响客户端行为
+
+#为具体的服务指定不同的负载均衡算法规则，算法规则优先级：配置文件配置>java代码>默认配置
+microservice-provider-one:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule  #为microservice-provider-one服务的算法配置为随机
+
+feign:
+  httpclient:
+    enabled: true #允许替换feign原生的使用jdk调用http接口的方式
+
+#配置SelfConfigProviderOneFeign的日志级别是debug
+logging:
+  level:
+    com.king.microservice.comsumer.feign.SelfConfigProviderOneFeign: DEBUG
+
+# 解决feign第一次请求报超时异常的方案：
+#feign第一次请求报超时异常的原因：feign内部集成了hystrix的一种断路器，它的默认超时时间是1秒，因为
+#网络环境差的时候就会报超时而断开连接
+# 方案一：设置hystrix的超时时间为5秒：
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000
+# 或者：禁用hystrix的超时机制
+# hystrix.command.default.execution.timeout.enabled: false
+# 或者：禁用hystrix的支持
+#feign.hystrix.enabled: false #索性禁用feign的hystrix支持
+
+#使ribbon脱离eureka来调用接口
+#ribbon:
+  #eureka:
+   #enabled: false
+#microservice-provider-one:
+  #ribbon:
+    #listOfServers: localhost:7300   #配置调用microservice-provider-one服务的时候只调取7300端口的实例
+
+
+

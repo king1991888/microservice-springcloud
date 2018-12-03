@@ -1,0 +1,19 @@
+server:
+  port: 7301
+
+spring:
+  application:
+    name: microservice-provider-one
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true     #允许健康检查
+    serviceUrl:
+      defaultZone: http://root:root@localhost:8765/eureka   #注册到eureka服务端的地址
+  instance:
+    prefer-ip-address: true      #允许使用ip访问，默认使用主机名访问
+    #自定义注册到eureka的服务实例名字：应用名：ip：实例端口号
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+    lease-renewal-interval-in-seconds: 5 #心跳时间间隔，单位：秒，默认30秒
+    lease-expiration-duration-in-seconds: 20  #心跳到期时间，单位秒，默认90秒
