@@ -3,7 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservice-comsumer" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/microservice-discovery-eureka-cloud" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-config-server" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservice-discovery-eureka-cloud" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservice-discovery-eureka-cloud/microservice-discovery-eureka-cloud-instance1" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservice-discovery-eureka-cloud/microservice-discovery-eureka-cloud-instance2" charset="UTF-8" />

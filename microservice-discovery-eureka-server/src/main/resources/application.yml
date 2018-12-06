@@ -5,12 +5,10 @@ spring:
 server:
   port: 8765    #默认端口号
 
-security:
-  basic:
-    enabled: true    #使用用户名密码安全认证
-  user:
-    name: root    #设置用户名为root
-    password: root    #设置密码为root
+  security:
+    user:
+      name: root    #设置用户名为root
+      password: root    #设置密码为root
 
 
 eureka:

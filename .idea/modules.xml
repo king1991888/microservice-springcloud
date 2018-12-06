@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/microservice-comsumer/microservice-comsumer.iml" filepath="$PROJECT_DIR$/microservice-comsumer/microservice-comsumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-config-server/microservice-config-server.iml" filepath="$PROJECT_DIR$/microservice-config-server/microservice-config-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservice-discovery-eureka-cloud/microservice-discovery-eureka-cloud.iml" filepath="$PROJECT_DIR$/microservice-discovery-eureka-cloud/microservice-discovery-eureka-cloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservice-discovery-eureka-cloud/microservice-discovery-eureka-cloud-instance1/microservice-discovery-eureka-cloud-instance1.iml" filepath="$PROJECT_DIR$/microservice-discovery-eureka-cloud/microservice-discovery-eureka-cloud-instance1/microservice-discovery-eureka-cloud-instance1.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservice-discovery-eureka-cloud/microservice-discovery-eureka-cloud-instance2/microservice-discovery-eureka-cloud-instance2.iml" filepath="$PROJECT_DIR$/microservice-discovery-eureka-cloud/microservice-discovery-eureka-cloud-instance2/microservice-discovery-eureka-cloud-instance2.iml" />

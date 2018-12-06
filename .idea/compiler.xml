@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="microservice-comsumer" />
+        <module name="microservice-config-server" />
         <module name="microservice-discovery-eureka-cloud-instance1" />
         <module name="microservice-discovery-eureka-cloud-instance2" />
         <module name="microservice-discovery-eureka-cloud-instance3" />
@@ -22,6 +23,7 @@
     <bytecodeTargetLevel>
       <module name="microservice-common" target="1.8" />
       <module name="microservice-comsumer" target="1.8" />
+      <module name="microservice-config-server" target="1.8" />
       <module name="microservice-discovery-eureka-cloud" target="1.8" />
       <module name="microservice-discovery-eureka-cloud-instance1" target="1.8" />
       <module name="microservice-discovery-eureka-cloud-instance2" target="1.8" />
