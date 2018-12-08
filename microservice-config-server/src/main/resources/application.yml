@@ -1,10 +1,32 @@
 spring:
   application:
     name: microservice-config-server
+  profiles:
+    active: native
+  security:
+    user:
+      name: root    #设置用户名为root
+      password: root  #设置密码为root
+   #配置本地存储的配置文件路径，数组，-表示数组的一个元素，注意-后面要有空格
+  cloud:
+    config:
+      server:
+        native:
+          search-locations:
+          - classpath:/repos/provider-one/
+          - classpath:/repos/provider-two/
+server:
+  port: 8888
 
-security:
-  basic:
-    enabled: true    #使用用户名密码安全认证
-  user:
-    name: root    #设置用户名为root
-    password: root    #设置密码为root
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:root@localhost:8765/eureka   #注册到eureka服务端的地址
+  instance:
+    prefer-ip-address: true      #允许使用ip访问，默认使用主机名访问
+    #自定义注册到eureka的服务实例名字：应用名：ip：实例端口号
+    instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${spring.application.instance_id:${server.port}}
+    lease-renewal-interval-in-seconds: 5 #心跳时间间隔，单位：秒，默认30秒
+    lease-expiration-duration-in-seconds: 20  #心跳到期时间，单位秒，默认90秒
+
+
