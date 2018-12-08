@@ -1,15 +1,13 @@
 spring:
   application:
     name: microservice-eureka-server   #应用名
-
-server:
-  port: 8765    #默认端口号
-
   security:
     user:
       name: root    #设置用户名为root
       password: root    #设置密码为root
 
+server:
+  port: 8765    #默认端口号
 
 eureka:
   server:
