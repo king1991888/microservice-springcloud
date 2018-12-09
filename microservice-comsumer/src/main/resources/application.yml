@@ -4,7 +4,11 @@ server:
 spring:
   application:
     name: microservice-comsumer
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream,health,info,refresh   #配置健康检查包括的视图
 
 eureka:
   client:
