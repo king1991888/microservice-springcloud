@@ -1,6 +1,7 @@
 package com.king.microservice.comsumer.controller;
 
 import com.king.microservice.comsumer.feign.ProviderOneFeign;
+import com.king.microservice.comsumer.feign.ProviderOneFeignWithFallbackFactory;
 import com.king.microservice.comsumer.feign.ProviderOneFeignWithoutEureka;
 import com.king.microservice.entity.BaseResult;
 import com.netflix.appinfo.InstanceInfo;
@@ -36,6 +37,9 @@ public class ComsumerController {
 
     @Autowired
     private ProviderOneFeign providerOneFeign;
+
+    @Autowired
+    private ProviderOneFeignWithFallbackFactory providerOneFeignWithFallbackFactory;
 
  /*   @Autowired
     private SelfConfigProviderOneFeign selfConfigProviderOneFeign;*/
@@ -100,5 +104,11 @@ public class ComsumerController {
         return providerOneFeignWithoutEureka.findServiceInfoFromEurekaByServiceName(serviceName);
 
     }
+
+    @GetMapping("/testFallbackFactory")
+    public BaseResult testFallbackFactory(){
+        return providerOneFeignWithFallbackFactory.test();
+    }
+
 
 }

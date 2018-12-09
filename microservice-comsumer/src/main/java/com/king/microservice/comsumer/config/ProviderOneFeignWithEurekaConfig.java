@@ -1,9 +1,11 @@
 package com.king.microservice.comsumer.config;
 
 import com.king.microservice.comsumer.annotation.ExcludeFeignConfig;
+import feign.Feign;
 import feign.auth.BasicAuthRequestInterceptor;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
 
 /**
  * @author king
@@ -27,6 +29,15 @@ public class ProviderOneFeignWithEurekaConfig {
     @Bean
     public BasicAuthRequestInterceptor basicAuthRequestInterceptor() {
         return new BasicAuthRequestInterceptor("root", "root");
+    }
+
+    /**
+     * 禁用单个feign的hystrix
+     * */
+    @Bean
+    @Scope("prototype")
+    public Feign.Builder feignBuilder() {
+        return Feign.builder();
     }
 
 

@@ -5,6 +5,7 @@ spring:
   application:
     name: microservice-comsumer
 
+
 eureka:
   client:
     healthcheck:
@@ -36,7 +37,8 @@ logging:
   level:
     com.king.microservice.comsumer.feign.SelfConfigProviderOneFeign: DEBUG
 
-# 解决feign第一次请求报超时异常的方案：
+# 解决Camden版本feign第一次请求报超时异常的方案：
+#Finchely.SR1版本的openfeign默认是关闭断路器的，该断路器超时时间是hystrix和openfeign内部的断路器都生效的
 #feign第一次请求报超时异常的原因：feign内部集成了hystrix的一种断路器，它的默认超时时间是1秒，因为
 #网络环境差的时候就会报超时而断开连接
 # 方案一：设置hystrix的超时时间为5秒：
