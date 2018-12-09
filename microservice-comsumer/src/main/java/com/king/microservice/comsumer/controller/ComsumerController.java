@@ -2,10 +2,11 @@ package com.king.microservice.comsumer.controller;
 
 import com.king.microservice.comsumer.feign.ProviderOneFeign;
 import com.king.microservice.comsumer.feign.ProviderOneFeignWithoutEureka;
-import com.king.microservice.comsumer.feign.SelfConfigProviderOneFeign;
 import com.king.microservice.entity.BaseResult;
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
+
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
@@ -33,11 +34,11 @@ public class ComsumerController {
     @Autowired
     private LoadBalancerClient loadBalancerClient;//ribbon负载均衡器对象
 
-/*    @Autowired
-    private ProviderOneFeign providerOneFeign;*/
-
     @Autowired
-    private SelfConfigProviderOneFeign selfConfigProviderOneFeign;
+    private ProviderOneFeign providerOneFeign;
+
+ /*   @Autowired
+    private SelfConfigProviderOneFeign selfConfigProviderOneFeign;*/
 
     @Autowired
     private ProviderOneFeignWithoutEureka providerOneFeignWithoutEureka;
@@ -71,22 +72,31 @@ public class ComsumerController {
 
     }
 
-/*
     @GetMapping("/testFeign")
-    public BaseResult testFeign(){
+    /**
+     * 使用断路器保护接口，如果接口方法里面出现超时，断路器将开启，不执行接口里面的代码，
+     * 直接调用fallback里面指定的方法，注意fallbackmethod属性指定的方法的方法名和返回值访问修饰符等
+     * 要和接口的方法一致。
+     * */
+    @HystrixCommand(fallbackMethod = "testFeignFallback")
+    public BaseResult testFeign() {
         return providerOneFeign.objHandle(new BaseResult("testfeign"));
     }
 
+    public BaseResult testFeignFallback(){
+        return new BaseResult("调用fallback方法");
+    }
+
     @GetMapping("/test")
-    public BaseResult test() {
+    public BaseResult test()  {
+
         return providerOneFeign.test();
     }
-*/
 
     @GetMapping("/testCutomizingFeign/{serviceName}")
     public String testCutomizingFeign(@PathVariable String serviceName){
 
-        System.out.println(selfConfigProviderOneFeign.test().getMsg());
+       /* System.out.println(selfConfigProviderOneFeign.test().getMsg());*/
         return providerOneFeignWithoutEureka.findServiceInfoFromEurekaByServiceName(serviceName);
 
     }

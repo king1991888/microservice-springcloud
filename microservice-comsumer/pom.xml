@@ -32,10 +32,10 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!--feign，类似web service客户端框架，把远程http接口调用转换成本地java接口类方法调用-->
-        <!-- <dependency>
-             <groupId>org.springframework.cloud</groupId>
-             <artifactId>spring-cloud-starter-feign</artifactId>
-         </dependency>-->
+         <!--<dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-feign</artifactId>
+    </dependency>-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
@@ -49,6 +49,11 @@
             <groupId>com.netflix.feign</groupId>
             <artifactId>feign-httpclient</artifactId>
             <version>8.18.0</version>
+        </dependency>
+        <!--断路器包-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
         </dependency>
     </dependencies>
 </project>

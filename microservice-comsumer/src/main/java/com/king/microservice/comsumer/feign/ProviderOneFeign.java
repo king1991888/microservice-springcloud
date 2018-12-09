@@ -1,7 +1,10 @@
 package com.king.microservice.comsumer.feign;
 
+
+
+import com.king.microservice.comsumer.feign.impl.ProviderOneFeignImpl;
 import com.king.microservice.entity.BaseResult;
-import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +14,10 @@ import org.springframework.web.bind.annotation.*;
  */
 /**
  * 原生feign客户端调用microservice-provider-one服务，只支持springmvc方式，会与自定义配置的feign
- * 客户端冲突
+ * 客户端冲突，fallback属性指定的类是其实现类，对应的实现方法为调用服务超时时调用的备用方法
  */
 
-@FeignClient("microservice-provider-one")
+@FeignClient(name="microservice-provider-one",fallback= ProviderOneFeignImpl.class)
 public interface ProviderOneFeign {
 
     //调取handler接口，两个坑：1. @GetMapping不支持   2. @PathVariable得设置value
@@ -29,5 +32,6 @@ public interface ProviderOneFeign {
      */
     @RequestMapping(value="/objHandle",method=RequestMethod.GET,consumes = MediaType.APPLICATION_JSON_VALUE)
     public BaseResult objHandle(@RequestBody BaseResult baseResult);
+
 
 }

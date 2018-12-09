@@ -14,7 +14,7 @@ eureka:
   instance:
     prefer-ip-address: true      #允许使用ip访问，默认使用主机名访问
     #自定义注册到eureka的服务实例名字：应用名：ip：实例端口号
-    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+    instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${spring.application.instance_id:${server.port}}
     lease-renewal-interval-in-seconds: 5 #心跳时间间隔，单位：秒，默认30秒
     lease-expiration-duration-in-seconds: 20  #心跳到期时间，单位秒，默认90秒
     metadata-map:
@@ -27,8 +27,9 @@ microservice-provider-one:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule  #为microservice-provider-one服务的算法配置为随机
 
 feign:
-  httpclient:
-    enabled: true #允许替换feign原生的使用jdk调用http接口的方式
+  hystrix:
+    enabled: true   #finchely.SR1版本的feign默认关闭断路器，需要手动打开
+
 
 #配置SelfConfigProviderOneFeign的日志级别是debug
 logging:

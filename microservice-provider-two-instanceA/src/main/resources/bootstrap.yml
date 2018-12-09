@@ -2,7 +2,7 @@
 
 spring:
   application:
-    name: microservice-provider-one
+    name: microservice-provider-two
   profiles:
     active: dev
    #向服务注册中心拿到配置中心的配置 约定:${spring.application.name}-${spring.profiles.active}.yml microservice-provider-one-dev.yml
@@ -27,4 +27,4 @@ eureka:
     instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${spring.application.instance_id:${server.port}}
     lease-renewal-interval-in-seconds: 5 #心跳时间间隔，单位：秒，默认30秒
     lease-expiration-duration-in-seconds: 20  #心跳到期时间，单位秒，默认90秒
-    appname: microservice-provider-one #注册到eureka的服务名字，这个才是最终设置服务名的。如果没配置就取应用名
+    appname: microservice-provider-two #注册到eureka的服务名字，这个才是最终设置服务名的。如果没配置就取应用名

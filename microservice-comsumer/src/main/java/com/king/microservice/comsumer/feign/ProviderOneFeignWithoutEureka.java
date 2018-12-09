@@ -1,7 +1,7 @@
 package com.king.microservice.comsumer.feign;
 
 import com.king.microservice.comsumer.config.ProviderOneFeignWithEurekaConfig;
-import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
