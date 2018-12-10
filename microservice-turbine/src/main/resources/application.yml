@@ -1,0 +1,20 @@
+
+spring:
+  application:
+    name: microservice-turbine
+
+server:
+  port: 8081
+
+turbine: #查看路径http://localhost:8081/turbine.stream?cluster=MICROSERVICE-COMSUMER，参数是监控的服务名字(大写)，如果只有监控一个服务，则不带参数
+  appConfig: microservice-comsumer    #监控eureka中的microservice-comsumer节点的断路器状态
+  clusterNameExpression: "'default'" #等同于new String("default")
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:root@localhost:8765/eureka   #注册到eureka服务端的地址
+  instance:
+    prefer-ip-address: true      #允许使用ip访问，默认使用主机名访问
+    #自定义注册到eureka的服务实例名字：应用名：ip：实例端口号
+    instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${spring.application.instance_id:${server.port}}

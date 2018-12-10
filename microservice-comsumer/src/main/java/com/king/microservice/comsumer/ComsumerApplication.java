@@ -28,7 +28,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableEurekaClient
 @EnableFeignClients  //使用feign客户端，ribbon的负载均衡规则仍然有效
 @EnableCircuitBreaker   //启用hystrix断路器
-@EnableHystrixDashboard  //启用断路器视图监控，路径：/hystrix,监控数据：/hystrix.stream,需要在健康检查那里加上
+@EnableHystrixDashboard  //启用断路器视图监控，路径：/hystrix,监控数据：/hystrix.stream,需要在健康检查那里加上。/actuator/hystrix.stream
 /**
  * 配置ribbon负载均衡算法，name是指定microservice-provider-one为服务名的算法为一个
  * 配置类，在该配置类里面配置具体的算法的bean，注意，该配置类不可以放在springboot父容器，
