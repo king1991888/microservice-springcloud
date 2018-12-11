@@ -1,0 +1,7 @@
+
+#反向代理时url加上前缀:http://localhost:8099/api/microservice-provider-one/handle
+zuul:
+  prefix: /api
+logging:
+  level:
+    com.netflix: DEBUG

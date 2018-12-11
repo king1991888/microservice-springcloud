@@ -17,6 +17,9 @@
         <module>microservice-provider-two-instanceB</module>
         <module>microservice-discovery-eureka-cloud</module>
         <module>microservice-config-server</module>
+        <module>microservice-turbine</module>
+        <module>microservice-zuul</module>
+        <module>microservice-zuul-regexp</module>
 
     </modules>
     <properties>

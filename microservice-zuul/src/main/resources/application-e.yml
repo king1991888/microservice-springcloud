@@ -1,0 +1,14 @@
+
+#这种方式反向代理microservice-provider-one服务将放弃eureka自带的ribbon
+#而使用zuul自带的ribbon对已配置的url进行负载均衡的请求
+zuul:
+  routes:
+    abc:
+      path: /provider-one/**
+      service-id: microservice-provider-one
+ribbon:
+  eureka:
+    enabled: false
+microservice-provider-one:     # 这边是ribbon要请求的微服务的serviceId
+  ribbon:
+    listOfServers: http://localhost:7300,http://localhost:7301

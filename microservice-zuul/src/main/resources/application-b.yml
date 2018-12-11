@@ -1,0 +1,6 @@
+
+zuul:
+  ignoredServices: microservice-comsumer  #忽略microservice-comsumer服务的反向代理，'*'为忽略所有，已配置的除外
+  routes:
+    microservice-provider-one: /provider-one/**  #对microservice-provider-one服务的反向代理
+    #url使用/provider-one/**替代，例如:http://localhost:8099/provider-one/handle

@@ -1,0 +1,4 @@
+
+
+#什么都不配，则通过eureka反向代理规则是:/服务名(spring.application.name)/**
+#例如:http://localhost:8099/microservice-provider-one/handler

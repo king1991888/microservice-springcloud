@@ -1,0 +1,10 @@
+
+
+#带有优先级的匹配规则，匹配microservice-provider-one服务的路由规则优先是/provider-one/**，
+#如果没有匹配上，再匹配其他。
+ zuul:
+  routes:
+    microservice-provider-one:
+      path: /provider-one/**
+    legacy:
+      path: /**

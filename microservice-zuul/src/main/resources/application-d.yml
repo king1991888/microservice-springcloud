@@ -1,0 +1,8 @@
+
+#直接反向代理u具体的url，例如:请求/provider-one/handle等价于http://localhost:7300/handle
+#这种方式将无法集成使用zuul自带的ribbon负载均衡，也无法集成使用zuul自带的hystrix断路器
+zuul:
+  routes:
+    abc: #这里随便写
+      path: /provider-one/**
+      url: http://localhost:7300/

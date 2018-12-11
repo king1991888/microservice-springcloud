@@ -1,0 +1,10 @@
+
+#反向代理时url加上前缀:/handle,但是该前缀会往后移
+#例如：http://localhost:8099/handle/microservice-provider-one/
+#等价于请求:/microservice-provider-one/handle
+zuul:
+  prefix: /handle
+  strip-prefix: false  #前缀往后移
+logging:
+  level:
+    com.netflix: debug
