@@ -1,0 +1,11 @@
+
+
+
+#通过zuul应用进行文件上传，使用/zuul/**路径进行请求，将会跳过DispatcherServlet ,也就是说不受mvc
+#控制，不会限制文件大小，springmvc文件上传大小默认是1M，从而可以达到上传大文件的目的。
+#因为上传大文件需要请求时间和响应时间比较长，而zuul是整合了hystrix和ribbon的，并且是使用这两个
+#组件的机制进行转发请求，所以需要配置请求和响应的时间长一点，以顺利让文件上传
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 60000

@@ -1,0 +1,20 @@
+
+
+
+#zuul本地反向代理配置，可以将请求转发给没有注册到eureka的服务或接口，从上往下按顺序执行，
+#例如:/first/**转发给http://first.example.com，/second/**转发给forward:/second
+#first与/first/**要有对应关系，legacy是找不到上面对应的url的时候，进行的转发
+zuul:
+  routes:
+    first:
+      path: /first/**
+      url: http://first.example.com
+    second:
+      path: /second/**
+      url: forward:/second
+    third:
+      path: /third/**
+      url: forward:/3rd
+    legacy:
+      path: /**
+      url: http://legacy.example.com

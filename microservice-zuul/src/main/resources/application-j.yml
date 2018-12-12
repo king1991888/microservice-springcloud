@@ -1,0 +1,11 @@
+
+#ignoredHeaders是设置下游服务之间的调用进行head的过滤，例如：客户端带了myheads的属性，
+#则zuul可以将此head传给下游服务，但是下游服务再请求另外一个下游服务，则不会携带，将会被过滤掉
+#如果Spring Security框架没有引入，默认是空的，否则，将会默认是这个框架的head，如果希望忽略掉，
+#配置ignoreSecurityHeaders: false
+zuul:
+  routes:
+    microservice-provider-one:
+      path: /provider-one/**
+      ignoredHeaders : Cookie
+      ignoreSecurityHeaders: false

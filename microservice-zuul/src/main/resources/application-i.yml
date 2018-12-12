@@ -1,0 +1,18 @@
+
+
+#配置sensitiveHeaders是zuul进行转发的时候，不会把cookie等带给下游服务，这里可以配置自定义的
+#要过滤的请求heads，但是如果客户端带的某个head属性被zuul的过滤器设置了addZuulRequestHeader()
+#同样的属性，那么客户端带的heads将会被覆盖，并且能传给下游服务
+zuul:
+  routes:
+    microservice-provider-one:
+      path: /provider-one/**
+      sensitiveHeaders: Cookie,Set-Cookie,Authorization
+
+
+#sensitiveHeaders默认不为空，如果要使他为空，需要显性设置，就像下面这样
+zuul:
+  routes:
+    microservice-provider-one:
+      path: /provider-one/**
+      sensitiveHeaders:
