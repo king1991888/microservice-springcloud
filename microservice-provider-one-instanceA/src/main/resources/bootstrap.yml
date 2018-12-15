@@ -10,6 +10,7 @@ spring:
     config:
       discovery:
         service-id: microservice-config-server
+        enabled: true
       username: root  #连接配置中心的用户名和密码
       password: root
 

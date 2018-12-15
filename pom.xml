@@ -20,6 +20,7 @@
         <module>microservice-turbine</module>
         <module>microservice-zuul</module>
         <module>microservice-zuul-regexp</module>
+        <module>microservice-sidecar</module>
 
     </modules>
     <properties>

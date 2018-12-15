@@ -1,0 +1,24 @@
+
+
+
+server:
+  port: 5678
+spring:
+  application:
+    name: microservice-sidecar
+#桥接服务，使用非Java语言编写的微服务注册到eureka上，该服务注册到eureka，将替代异构微服务
+#sidecar.port指定的是异构服务的端口号，health-uri指定异构微服务的健康检查信息接口，需要返回一个
+#json字符串：{ "status":"UP"}，用于集成到eureka监控，当调用sidecar服务时，实际调用的是异构服务
+#默认异构微服务与sidecar要在同一台机器上
+sidecar:
+  port: 8000
+  health-uri: http://localhost:8000/health.json
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:root@localhost:8765/eureka   #注册到eureka服务端的地址
+  instance:
+    prefer-ip-address: true      #允许使用ip访问，默认使用主机名访问
+    #自定义注册到eureka的服务实例名字：应用名：ip：实例端口号
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
