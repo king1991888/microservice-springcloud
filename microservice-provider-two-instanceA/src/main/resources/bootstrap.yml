@@ -19,7 +19,7 @@ spring:
 eureka:
   client:
     healthcheck:
-      enabled: true     #允许健康检查
+      enabled: true     #允许健康检查，healthcheck:enabled: true 该配置不能放在bootstrap.yml上，会让eureka无法识别服务，只能放在application.yml上
     serviceUrl:
       defaultZone: http://root:root@localhost:8765/eureka   #注册到eureka服务端的地址
   instance:
