@@ -13,6 +13,7 @@ spring:
       server:
         native:
           search-locations:
+          - classpath:/repos/common/
           - classpath:/repos/provider-one/
           - classpath:/repos/provider-two/
 server:
