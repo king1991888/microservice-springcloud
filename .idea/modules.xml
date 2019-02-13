@@ -13,7 +13,11 @@
       <module fileurl="file://$PROJECT_DIR$/microservice-provider-one-instanceB/microservice-provider-one-instanceB.iml" filepath="$PROJECT_DIR$/microservice-provider-one-instanceB/microservice-provider-one-instanceB.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservice-provider-two-instanceA/microservice-provider-two-instanceA.iml" filepath="$PROJECT_DIR$/microservice-provider-two-instanceA/microservice-provider-two-instanceA.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservice-provider-two-instanceB/microservice-provider-two-instanceB.iml" filepath="$PROJECT_DIR$/microservice-provider-two-instanceB/microservice-provider-two-instanceB.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-sidecar/microservice-sidecar.iml" filepath="$PROJECT_DIR$/microservice-sidecar/microservice-sidecar.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservice-springcloud.iml" filepath="$PROJECT_DIR$/microservice-springcloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-turbine/microservice-turbine.iml" filepath="$PROJECT_DIR$/microservice-turbine/microservice-turbine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-zuul/microservice-zuul.iml" filepath="$PROJECT_DIR$/microservice-zuul/microservice-zuul.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-zuul-regexp/microservice-zuul-regexp.iml" filepath="$PROJECT_DIR$/microservice-zuul-regexp/microservice-zuul-regexp.iml" />
     </modules>
   </component>
 </project>

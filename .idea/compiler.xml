@@ -18,6 +18,10 @@
         <module name="microservice-provider-one-instanceB" />
         <module name="microservice-provider-two-instanceA" />
         <module name="microservice-provider-two-instanceB" />
+        <module name="microservice-sidecar" />
+        <module name="microservice-turbine" />
+        <module name="microservice-zuul" />
+        <module name="microservice-zuul-regexp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -35,7 +39,11 @@
       <module name="microservice-provider-one-instanceB" target="1.8" />
       <module name="microservice-provider-two-instanceA" target="1.8" />
       <module name="microservice-provider-two-instanceB" target="1.8" />
+      <module name="microservice-sidecar" target="1.8" />
       <module name="microservice-springcloud" target="1.8" />
+      <module name="microservice-turbine" target="1.8" />
+      <module name="microservice-zuul" target="1.8" />
+      <module name="microservice-zuul-regexp" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

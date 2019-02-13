@@ -13,5 +13,9 @@
     <file url="file://$PROJECT_DIR$/microservice-provider-one-instanceB" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservice-provider-two-instanceA" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservice-provider-two-instanceB" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-sidecar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-turbine" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-zuul" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-zuul-regexp" charset="UTF-8" />
   </component>
 </project>

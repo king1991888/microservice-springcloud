@@ -1,0 +1,12 @@
+
+#对称加密：
+encrypt:
+  key: mysecret  #对称加密密钥
+  #非对称加密：
+  #key-store:
+    #location:  classpath:server.jks    密钥文件位置
+    #password: letmein      #storepass
+    #alias:  mytestkey      #alias
+    #secret: changeme       ##keypass
+
+

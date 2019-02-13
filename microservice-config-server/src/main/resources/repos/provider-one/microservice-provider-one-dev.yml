@@ -1,2 +1,6 @@
 server:
   port: 7300
+
+spring:
+  database:
+    password: '{cipher}5c8be2b58685af39e4c20cc4e1fecb5ba1f90a0e226c6a8ec30ffbac06e59a32'
